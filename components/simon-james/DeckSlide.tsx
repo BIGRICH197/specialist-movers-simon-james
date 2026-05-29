@@ -40,7 +40,7 @@ export function DeckSlide({
       />
       <div
         className={cn(
-          "deck-slide-inner relative z-[1] mx-auto flex w-full max-w-7xl flex-col container-px py-10 sm:py-12 lg:py-14",
+          "deck-slide-inner relative z-[1] mx-auto flex w-full max-w-7xl flex-col container-px py-12 sm:py-16 lg:py-20",
           innerClassName,
         )}
       >

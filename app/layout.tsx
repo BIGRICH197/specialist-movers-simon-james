@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { DeckPrintSetup } from "@/components/simon-james/DeckPrintSetup";
 import "./globals.css";
 import "./deck.css";
 
@@ -24,10 +23,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${inter.variable} ${termina.variable}`}>
-      <body className="min-h-screen bg-brand-canvas">
-        <DeckPrintSetup />
-        {children}
-      </body>
+      <body className="min-h-screen bg-brand-canvas">{children}</body>
     </html>
   );
 }
