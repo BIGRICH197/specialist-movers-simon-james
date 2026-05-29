@@ -49,6 +49,38 @@ html.deck-document body {
   min-height: 100svh;
 }
 
+#cover .deck-cover-title {
+  font-size: 1.875rem !important;
+  line-height: 1.1 !important;
+}
+
+@media (min-width: 640px) {
+  #cover .deck-cover-title {
+    font-size: 2.25rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  #cover .deck-cover-title {
+    font-size: 2.5rem !important;
+  }
+}
+
+/* +1cm height so heads are not cropped */
+#cover .deck-cover-photo {
+  min-height: calc(12rem + 1cm) !important;
+}
+
+@media (min-width: 640px) {
+  #cover .deck-cover-photo {
+    min-height: calc(14rem + 1cm) !important;
+  }
+}
+
+#cover .deck-cover-photo img {
+  object-position: center 38% !important;
+}
+
 /* Experience photo — full width, natural aspect (no mm crop) */
 #experience .deck-experience-photo {
   margin-top: 1.5rem;

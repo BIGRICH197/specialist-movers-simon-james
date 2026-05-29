@@ -88,7 +88,7 @@ export function SimonJamesDeck() {
           <div className="deck-eyebrow-wrap mt-6">
             <DeckEyebrow tone="purple">Proposal · May 2026</DeckEyebrow>
           </div>
-          <DeckTitle tone="purple" as="h1" className="mt-5">
+          <DeckTitle tone="purple" as="h1" className="deck-cover-title mt-5">
             Bespoke furniture delivery
           </DeckTitle>
           <p className="mt-3 font-heading text-base font-bold uppercase tracking-[0.2em] text-brand-yellow sm:text-lg">
@@ -102,8 +102,9 @@ export function SimonJamesDeck() {
           photoHoverSrc={sitePhotos.homeHeroHover}
           photoHoverAlt="Crew after the move"
           overlayCaption={deckHero.photoTagline}
+          imageObjectPosition="center 38%"
           priority
-          className="hero-photo-ambient w-full"
+          className="deck-cover-photo hero-photo-ambient w-full"
         />
       </DeckSlide>
 
