@@ -1,0 +1,386 @@
+/* Simon James deck: A4 preview on screen, tight portrait pages when printing */
+
+.deck-root {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.deck-slide {
+  min-height: 100svh;
+  box-sizing: border-box;
+}
+
+.deck-slide--scroll {
+  height: auto;
+}
+
+.deck-slide--scroll .deck-slide-inner {
+  overflow: visible;
+  max-height: none;
+}
+
+.deck-no-print {
+  display: block;
+}
+
+.deck-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  background: #9739b0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+@media screen {
+  html.deck-document {
+    background: #d9d3de;
+  }
+
+  html.deck-document body {
+    background: #d9d3de;
+  }
+
+  html.deck-document .deck-root {
+    width: 210mm;
+    max-width: calc(100vw - 1rem);
+    margin: 0 auto;
+    box-shadow: 0 16px 48px rgba(42, 36, 48, 0.12);
+  }
+
+  html.deck-document .deck-slide {
+    width: 100%;
+  }
+}
+
+@media print {
+  @page {
+    size: 210mm 297mm;
+    margin: 0;
+  }
+
+  .deck-no-print {
+    display: none !important;
+  }
+
+  html.deck-document,
+  html.deck-document body,
+  html.deck-document main {
+    width: 210mm !important;
+    max-width: 210mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .deck-root {
+    scroll-snap-type: none;
+    width: 210mm !important;
+    max-width: 210mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+
+  /* Page height = content (kills empty space at bottom of short slides) */
+  .deck-slide {
+    width: 210mm !important;
+    max-width: 210mm !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    page-break-after: always;
+    break-after: page;
+    page-break-inside: avoid;
+    break-inside: avoid-page;
+    overflow: visible !important;
+    box-sizing: border-box;
+  }
+
+  .deck-slide:last-child {
+    page-break-after: auto;
+  }
+
+  .deck-slide > .pointer-events-none {
+    display: none !important;
+  }
+
+  .deck-slide-inner {
+    width: 100% !important;
+    max-width: 210mm !important;
+    box-sizing: border-box;
+    padding: 6mm 10mm 7mm !important;
+    gap: 0 !important;
+  }
+
+  .deck-rule {
+    margin: 2.5mm 0 !important;
+    width: 2rem !important;
+  }
+
+  .deck-title {
+    margin-top: 0 !important;
+    line-height: 1.12 !important;
+  }
+
+  .deck-eyebrow-wrap {
+    margin-bottom: 2mm !important;
+  }
+
+  .deck-lead {
+    margin-top: 2mm !important;
+    font-size: 8.5pt !important;
+    line-height: 1.4 !important;
+  }
+
+  .deck-slide.hero-ambient {
+    background-color: #9739b0 !important;
+  }
+
+  /* Cover */
+  #cover .deck-slide-inner {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    padding-top: 5mm !important;
+    padding-bottom: 5mm !important;
+  }
+
+  #cover .deck-cover-copy {
+    flex: 0 0 auto;
+  }
+
+  #cover .deck-cover-copy .mt-8 {
+    margin-top: 3mm !important;
+  }
+
+  #cover .deck-cover-copy .mt-5 {
+    margin-top: 2mm !important;
+  }
+
+  #cover .deck-cover-copy .mt-3 {
+    margin-top: 2mm !important;
+  }
+
+  #cover .deck-title {
+    font-size: 15pt !important;
+  }
+
+  #cover .hero-photo-ambient {
+    flex: 0 0 auto;
+    max-height: 108mm !important;
+    min-height: 0 !important;
+    margin-top: 3mm !important;
+  }
+
+  #cover .hero-photo-ambient p {
+    font-size: 11pt !important;
+  }
+
+  /* About */
+  #about .hero-photo-ambient {
+    max-height: 52mm !important;
+    min-height: 0 !important;
+    margin-top: 3mm !important;
+  }
+
+  #about .deck-stack-tight {
+    margin-top: 3mm !important;
+    gap: 2mm !important;
+  }
+
+  #about .deck-stack-tight p {
+    font-size: 8pt !important;
+    line-height: 1.38 !important;
+  }
+
+  /* Values: stack pillars */
+  #values .deck-pillars {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 3mm !important;
+    margin-top: 2mm !important;
+  }
+
+  #values .deck-pillars li {
+    padding-top: 2.5mm !important;
+    border-top-width: 1px;
+  }
+
+  #values .deck-pillars h3 {
+    font-size: 8pt !important;
+  }
+
+  #values .deck-pillars p {
+    margin-top: 1mm !important;
+    font-size: 8pt !important;
+    line-height: 1.35 !important;
+  }
+
+  #values .deck-title {
+    font-size: 15pt !important;
+  }
+
+  /* Experience */
+  #experience .deck-stats {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 3mm 4mm !important;
+    margin-top: 2mm !important;
+  }
+
+  #experience .deck-stats li {
+    padding-top: 2mm !important;
+  }
+
+  #experience .deck-stats .font-heading {
+    font-size: 14pt !important;
+  }
+
+  #experience .deck-stats .text-xs {
+    font-size: 6.5pt !important;
+  }
+
+  #experience .deck-experience-photo {
+    display: none !important;
+  }
+
+  #experience .deck-lead {
+    margin-top: 3mm !important;
+    font-size: 8pt !important;
+  }
+
+  #experience .deck-title {
+    font-size: 15pt !important;
+  }
+
+  /* Zones */
+  #zones .deck-slide-inner {
+    padding-top: 5mm !important;
+    padding-bottom: 5mm !important;
+  }
+
+  #zones .deck-map {
+    margin-top: 2mm !important;
+  }
+
+  #zones .deck-map img {
+    max-height: 168mm !important;
+    width: 100% !important;
+    object-fit: contain !important;
+  }
+
+  #zones .deck-lead {
+    font-size: 8pt !important;
+  }
+
+  /* Pricing */
+  #pricing-delivery .deck-title {
+    font-size: 14pt !important;
+  }
+
+  #pricing-delivery .deck-pricing-table {
+    margin-top: 2mm !important;
+    font-size: 7pt;
+  }
+
+  #pricing-delivery .deck-pricing-table th {
+    font-size: 6pt;
+    padding: 1.25mm 1.5mm;
+  }
+
+  #pricing-delivery .deck-pricing-table td {
+    padding: 1.25mm 1.5mm;
+  }
+
+  #pricing-delivery .deck-footnote {
+    margin-top: 2mm !important;
+    font-size: 6.5pt !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Warehouse */
+  #pricing-warehouse .deck-title {
+    font-size: 15pt !important;
+  }
+
+  #pricing-warehouse .deck-price-card {
+    margin-top: 3mm !important;
+  }
+
+  #pricing-warehouse .deck-price-card > div {
+    padding: 2.5mm 3mm !important;
+  }
+
+  #pricing-warehouse .deck-footnote {
+    margin-top: 2mm !important;
+    font-size: 7pt !important;
+  }
+
+  /* Included */
+  #included .deck-checklist {
+    margin-top: 2mm !important;
+    gap: 1.5mm !important;
+  }
+
+  #included .deck-checklist li {
+    font-size: 8.5pt !important;
+    line-height: 1.35 !important;
+  }
+
+  #included .deck-tagline {
+    margin-top: 3mm !important;
+    font-size: 8pt !important;
+  }
+
+  #included .deck-lead {
+    margin-top: 3mm !important;
+  }
+
+  /* Contact */
+  #contact .deck-contact-grid {
+    display: block !important;
+    margin-top: 3mm !important;
+  }
+
+  #contact .deck-contact-photo {
+    max-height: 48mm !important;
+    margin-bottom: 3mm !important;
+  }
+
+  #contact .deck-contact-list {
+    margin-top: 0 !important;
+    gap: 2mm !important;
+  }
+
+  #contact .deck-contact-list > div {
+    padding-top: 2.5mm !important;
+  }
+
+  #contact .deck-contact-list .font-heading {
+    font-size: 11pt !important;
+  }
+
+  #contact .deck-address {
+    margin-top: 3mm !important;
+    font-size: 7pt !important;
+  }
+
+  .deck-pricing-table {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+}
