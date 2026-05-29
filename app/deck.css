@@ -1,4 +1,4 @@
-/* Simon James deck — full-width scroll (web presentation) */
+/* Simon James deck — A4 portrait pages on screen (no print workflow) */
 
 .deck-root {
   scroll-snap-type: y mandatory;
@@ -17,4 +17,281 @@
 .deck-slide--scroll .deck-slide-inner {
   overflow: visible;
   max-height: none;
+}
+
+/* --- A4 document view (matches exported pitch PDF) --- */
+
+html.deck-document {
+  background: #d9d3de;
+}
+
+html.deck-document body {
+  background: #d9d3de;
+}
+
+html.deck-document .deck-root {
+  width: 210mm;
+  max-width: calc(100vw - 1rem);
+  margin: 0 auto;
+  box-shadow: 0 16px 48px rgba(42, 36, 48, 0.12);
+}
+
+html.deck-document .deck-slide {
+  width: 100%;
+  min-height: 297mm;
+  scroll-snap-align: start;
+}
+
+html.deck-document .deck-slide-inner {
+  max-width: 100% !important;
+  padding: 8mm 10mm 9mm !important;
+}
+
+html.deck-document .deck-rule {
+  margin: 3mm 0 !important;
+  width: 2rem !important;
+}
+
+html.deck-document .deck-title {
+  line-height: 1.12 !important;
+}
+
+html.deck-document .deck-eyebrow-wrap {
+  margin-bottom: 2mm !important;
+}
+
+html.deck-document .deck-lead {
+  font-size: 0.9rem !important;
+  line-height: 1.4 !important;
+}
+
+/* Cover — stacked like PDF */
+html.deck-document #cover .deck-slide-inner {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  gap: 3mm !important;
+  padding-top: 6mm !important;
+  padding-bottom: 6mm !important;
+}
+
+html.deck-document #cover .deck-cover-copy .mt-8 {
+  margin-top: 3mm !important;
+}
+
+html.deck-document #cover .deck-cover-copy .mt-5 {
+  margin-top: 2mm !important;
+}
+
+html.deck-document #cover .deck-cover-copy .mt-3,
+html.deck-document #cover .deck-cover-copy .mt-4 {
+  margin-top: 2mm !important;
+}
+
+html.deck-document #cover .deck-title {
+  font-size: 1.35rem !important;
+}
+
+html.deck-document #cover .hero-photo-ambient {
+  flex: 0 0 auto;
+  max-height: 108mm !important;
+  min-height: 0 !important;
+  margin-top: 2mm !important;
+}
+
+/* About */
+html.deck-document #about .hero-photo-ambient {
+  max-height: 52mm !important;
+  min-height: 0 !important;
+  margin-top: 3mm !important;
+}
+
+html.deck-document #about .deck-stack-tight {
+  margin-top: 3mm !important;
+  gap: 2mm !important;
+}
+
+html.deck-document #about .deck-stack-tight .deck-lead {
+  font-size: 0.8rem !important;
+  line-height: 1.38 !important;
+}
+
+/* Values — vertical pillars */
+html.deck-document #values .deck-pillars {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3mm !important;
+  margin-top: 2mm !important;
+}
+
+html.deck-document #values .deck-pillars li {
+  padding-top: 2.5mm !important;
+}
+
+html.deck-document #values .deck-pillars h3 {
+  font-size: 0.72rem !important;
+}
+
+html.deck-document #values .deck-pillars p {
+  margin-top: 1mm !important;
+  font-size: 0.8rem !important;
+  line-height: 1.35 !important;
+}
+
+html.deck-document #values .deck-title {
+  font-size: 1.25rem !important;
+}
+
+/* Experience — 2×2 stats, no extra photo */
+html.deck-document #experience .deck-stats {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 3mm 4mm !important;
+  margin-top: 2mm !important;
+}
+
+html.deck-document #experience .deck-stats li {
+  padding-top: 2mm !important;
+}
+
+html.deck-document #experience .deck-stats .font-heading {
+  font-size: 1.35rem !important;
+}
+
+html.deck-document #experience .deck-stats .text-xs {
+  font-size: 0.62rem !important;
+}
+
+html.deck-document #experience .deck-experience-photo {
+  display: none !important;
+}
+
+html.deck-document #experience .deck-lead {
+  margin-top: 3mm !important;
+  font-size: 0.8rem !important;
+}
+
+html.deck-document #experience .deck-title {
+  font-size: 1.25rem !important;
+}
+
+/* Zones — map fills page */
+html.deck-document #zones .deck-slide-inner {
+  padding-top: 5mm !important;
+  padding-bottom: 5mm !important;
+}
+
+html.deck-document #zones .deck-map {
+  margin-top: 2mm !important;
+}
+
+html.deck-document #zones .deck-map img {
+  max-height: 168mm !important;
+  width: 100% !important;
+  object-fit: contain !important;
+}
+
+html.deck-document #zones .deck-lead {
+  font-size: 0.8rem !important;
+}
+
+/* Pricing */
+html.deck-document #pricing-delivery .deck-title {
+  font-size: 1.15rem !important;
+}
+
+html.deck-document #pricing-delivery .deck-pricing-table {
+  margin-top: 2mm !important;
+  font-size: 0.68rem;
+}
+
+html.deck-document #pricing-delivery .deck-pricing-table th {
+  font-size: 0.62rem;
+  padding: 1.25mm 1.5mm;
+}
+
+html.deck-document #pricing-delivery .deck-pricing-table td {
+  padding: 1.25mm 1.5mm;
+}
+
+html.deck-document #pricing-delivery .deck-footnote {
+  margin-top: 2mm !important;
+  font-size: 0.68rem !important;
+  line-height: 1.35 !important;
+}
+
+/* Warehouse */
+html.deck-document #pricing-warehouse .deck-title {
+  font-size: 1.25rem !important;
+}
+
+html.deck-document #pricing-warehouse .deck-price-card {
+  margin-top: 3mm !important;
+}
+
+html.deck-document #pricing-warehouse .deck-price-card > div {
+  padding: 2.5mm 3mm !important;
+}
+
+html.deck-document #pricing-warehouse .deck-footnote {
+  margin-top: 2mm !important;
+  font-size: 0.72rem !important;
+}
+
+/* Included */
+html.deck-document #included .deck-checklist {
+  margin-top: 2mm !important;
+  gap: 1.5mm !important;
+}
+
+html.deck-document #included .deck-checklist li {
+  font-size: 0.84rem !important;
+  line-height: 1.35 !important;
+}
+
+html.deck-document #included .deck-tagline {
+  margin-top: 3mm !important;
+  font-size: 0.8rem !important;
+}
+
+html.deck-document #included .deck-lead {
+  margin-top: 3mm !important;
+}
+
+/* Contact */
+html.deck-document #contact .deck-contact-grid {
+  display: block !important;
+  margin-top: 3mm !important;
+}
+
+html.deck-document #contact .deck-contact-photo {
+  max-height: 48mm !important;
+  margin-bottom: 3mm !important;
+}
+
+html.deck-document #contact .deck-contact-list {
+  margin-top: 0 !important;
+  gap: 2mm !important;
+}
+
+html.deck-document #contact .deck-contact-list > div {
+  padding-top: 2.5mm !important;
+}
+
+html.deck-document #contact .deck-contact-list .font-heading {
+  font-size: 1rem !important;
+}
+
+html.deck-document #contact .deck-address {
+  margin-top: 3mm !important;
+  font-size: 0.7rem !important;
+}
+
+html.deck-document .deck-pricing-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+html.deck-document img {
+  max-width: 100%;
 }

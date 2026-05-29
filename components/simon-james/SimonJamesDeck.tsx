@@ -80,11 +80,11 @@ export function SimonJamesDeck() {
       <DeckSlide
         id="cover"
         tone="purple"
-        innerClassName="justify-center gap-10 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12"
+        innerClassName="justify-center gap-8"
       >
-        <div>
+        <div className="deck-cover-copy">
           <DeckBrandLogo onPurple />
-          <div className="mt-8">
+          <div className="deck-eyebrow-wrap mt-6">
             <DeckEyebrow tone="purple">Proposal · May 2026</DeckEyebrow>
           </div>
           <DeckTitle tone="purple" as="h1" className="mt-5">
@@ -93,7 +93,7 @@ export function SimonJamesDeck() {
           <p className="mt-3 font-heading text-sm font-bold uppercase tracking-[0.2em] text-brand-yellow sm:text-base">
             Prepared for Simon James
           </p>
-          <p className="mt-8 text-sm text-white/75 sm:text-base">Richard Boote, Director</p>
+          <p className="mt-4 text-sm text-white/75 sm:mt-6 sm:text-base">Richard Boote, Director</p>
         </div>
         <HeroVisual
           photoSrc={sitePhotos.homeHero}
@@ -118,7 +118,7 @@ export function SimonJamesDeck() {
           imageObjectPosition="center 35%"
           className="mt-8 w-full"
         />
-        <div className="mt-8 space-y-4">
+        <div className="deck-stack-tight mt-6 flex flex-col gap-3 sm:mt-8 sm:gap-4">
           {aboutParagraphs.map((para) => (
             <DeckLead key={para.slice(0, 24)}>{para}</DeckLead>
           ))}
@@ -132,7 +132,7 @@ export function SimonJamesDeck() {
           Three things every delivery gets
         </DeckTitle>
         <DeckRule tone="purple" />
-        <ul className="mt-4 grid gap-6 sm:grid-cols-3 sm:gap-8">
+        <ul className="deck-pillars mt-4 grid gap-6 sm:grid-cols-3 sm:gap-8">
           {pillars.map((p) => (
             <li key={p.title} className="border-t border-white/20 pt-6">
               <h3 className="font-heading text-sm font-bold uppercase tracking-wide text-brand-yellow">
@@ -149,7 +149,7 @@ export function SimonJamesDeck() {
         <DeckEyebrow>Experience</DeckEyebrow>
         <DeckTitle className="mt-4">What we move a week</DeckTitle>
         <DeckRule />
-        <ul className="mt-2 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="deck-stats mt-2 grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
           {stats.map((s) => (
             <li key={s.label} className="border-t border-brand-purple/15 pt-6">
               <p className="font-heading text-3xl font-bold text-brand-purple sm:text-4xl">{s.value}</p>
@@ -159,7 +159,11 @@ export function SimonJamesDeck() {
             </li>
           ))}
         </ul>
-        <SitePhoto src={sitePhotos.houseMove} alt="Careful furniture move" className="mt-10" />
+        <SitePhoto
+          src={sitePhotos.houseMove}
+          alt="Careful furniture move"
+          className="deck-experience-photo mt-8"
+        />
         <DeckLead className="mt-6 sm:mt-8">
           Our team has handled everything from Steinway grand pianos to bespoke dining tables. We know
           how to wrap, lift, walk, and place high-value furniture without damage, and we would like
@@ -176,7 +180,7 @@ export function SimonJamesDeck() {
           Five zones from your warehouse. Inner Auckland for same-day work; outer rings for further
           drops.
         </DeckLead>
-        <div className="mt-6 flex flex-1 items-center justify-center">
+        <div className="deck-map mt-4 flex flex-1 items-center justify-center sm:mt-6">
           <Image
             src="/clients/simon-james/zone_map.png"
             alt="Delivery zones map"
@@ -208,7 +212,7 @@ export function SimonJamesDeck() {
           headers={["Zone", "Base per delivery", "Above 2 m³"]}
           rows={deliveryPricing.map((r) => [r.zone, r.base, r.extra])}
         />
-        <p className="mt-4 text-sm leading-relaxed text-white/70">
+        <p className="deck-footnote mt-3 text-xs leading-relaxed text-white/70 sm:mt-4 sm:text-sm">
           {deliveryPricingFootnote}
         </p>
       </DeckSlide>
@@ -221,7 +225,7 @@ export function SimonJamesDeck() {
         <DeckLead>
           Stock transfers between sites. Same-day freight, careful movement, no install or rubbish.
         </DeckLead>
-        <div className="mt-8 overflow-hidden rounded-xl border border-brand-purple/15 bg-white shadow-sm">
+        <div className="deck-price-card mt-6 overflow-hidden rounded-xl border border-brand-purple/15 bg-white shadow-sm sm:mt-8">
           {warehouseBulkPricing.map((row, i) => (
             <div
               key={row.label}
@@ -236,7 +240,7 @@ export function SimonJamesDeck() {
             </div>
           ))}
         </div>
-        <p className="mt-6 text-sm text-brand-purple/65">
+        <p className="deck-footnote mt-4 text-sm text-brand-purple/65 sm:mt-6">
           Call-out excl. GST · two-mover crew · Auckland local
         </p>
       </DeckSlide>
@@ -246,7 +250,7 @@ export function SimonJamesDeck() {
         <DeckEyebrow>Included</DeckEyebrow>
         <DeckTitle className="mt-4">What fixed price means</DeckTitle>
         <DeckRule />
-        <ul className="mt-6 space-y-3">
+        <ul className="deck-checklist mt-5 flex flex-col gap-2 sm:mt-6 sm:gap-3">
           {included.map((line) => (
             <li key={line} className="flex gap-3 text-base leading-relaxed text-brand-purple/85">
               <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-purple" aria-hidden />
@@ -258,7 +262,7 @@ export function SimonJamesDeck() {
           Most movers stop at the door. We place the piece, remove packaging, and leave the room
           ready. The last 50 metres matters as much as the 50 kilometres.
         </DeckLead>
-        <p className="mt-10 font-heading text-sm font-bold uppercase tracking-[0.15em] text-brand-purple sm:text-base">
+        <p className="deck-tagline mt-6 font-heading text-sm font-bold uppercase tracking-[0.15em] text-brand-purple sm:mt-8 sm:text-base">
           Your craft, delivered properly.
         </p>
       </DeckSlide>
@@ -270,15 +274,15 @@ export function SimonJamesDeck() {
           Talk to us
         </DeckTitle>
         <DeckRule tone="purple" />
-        <div className="mt-8 lg:grid lg:grid-cols-2 lg:gap-12">
+        <div className="deck-contact-grid mt-6 lg:grid lg:grid-cols-2 lg:gap-10">
           <SitePhoto
             src={sitePhotos.premiumService}
             alt="Specialist Movers service"
             aspect="wide"
-            className="border-white/15"
+            className="deck-contact-photo border-white/15"
             overlay={false}
           />
-          <div className="mt-8 space-y-6 lg:mt-0">
+          <div className="deck-contact-list mt-6 flex flex-col gap-5 sm:gap-6 lg:mt-0">
             {contacts.map((c) => (
               <div key={c.role} className="border-t border-white/20 pt-5">
                 <p className="text-xs font-semibold uppercase tracking-wider text-brand-yellow">{c.role}</p>
@@ -294,7 +298,7 @@ export function SimonJamesDeck() {
             ))}
           </div>
         </div>
-        <p className="mt-10 text-sm text-white/65">
+        <p className="deck-address mt-6 text-sm text-white/65 sm:mt-8">
           186 Target Road, Glenfield · specialistmovers.co.nz
         </p>
       </DeckSlide>

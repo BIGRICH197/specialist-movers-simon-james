@@ -22,8 +22,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${termina.variable}`}>
-      <body className="min-h-screen bg-brand-canvas">{children}</body>
+    <html lang="en" className={`deck-document ${inter.variable} ${termina.variable}`}>
+      <body className="min-h-screen">{children}</body>
     </html>
   );
 }
