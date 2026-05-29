@@ -1,16 +1,21 @@
-/* Simon James deck — A4 portrait pages on screen (no print workflow) */
+/* Simon James deck — web presentation (content-sized slides, no forced A4 gaps) */
 
 .deck-root {
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
   scroll-behavior: smooth;
 }
 
 .deck-slide {
-  min-height: 100svh;
+  min-height: auto;
   box-sizing: border-box;
 }
 
+#cover.deck-slide {
+  min-height: 100svh;
+}
+
 .deck-slide--scroll {
+  min-height: auto;
   height: auto;
 }
 
@@ -19,7 +24,7 @@
   max-height: none;
 }
 
-/* --- A4 document view (matches exported pitch PDF) --- */
+/* --- Document column (centred deck, not forced full-page height per slide) --- */
 
 html.deck-document {
   background: #d9d3de;
@@ -30,16 +35,26 @@ html.deck-document body {
 }
 
 html.deck-document .deck-root {
-  width: 210mm;
-  max-width: calc(100vw - 1rem);
+  width: min(52rem, calc(100vw - 1.5rem));
+  max-width: calc(100vw - 1.5rem);
   margin: 0 auto;
   box-shadow: 0 16px 48px rgba(42, 36, 48, 0.12);
 }
 
 html.deck-document .deck-slide {
   width: 100%;
-  min-height: 297mm;
+  min-height: auto;
+  height: auto;
   scroll-snap-align: start;
+}
+
+html.deck-document .deck-slide--scroll {
+  min-height: auto;
+}
+
+/* Cover fills the viewport when you land on it */
+html.deck-document #cover.deck-slide {
+  min-height: 100svh;
 }
 
 html.deck-document .deck-slide-inner {
@@ -65,12 +80,13 @@ html.deck-document .deck-lead {
   line-height: 1.4 !important;
 }
 
-/* Cover — stacked like PDF */
+/* Cover — stacked */
 html.deck-document #cover .deck-slide-inner {
   display: flex !important;
   flex-direction: column !important;
-  justify-content: flex-start !important;
+  justify-content: center !important;
   gap: 3mm !important;
+  min-height: 100svh;
   padding-top: 6mm !important;
   padding-bottom: 6mm !important;
 }
@@ -94,7 +110,7 @@ html.deck-document #cover .deck-title {
 
 html.deck-document #cover .hero-photo-ambient {
   flex: 0 0 auto;
-  max-height: 108mm !important;
+  max-height: min(52vh, 108mm) !important;
   min-height: 0 !important;
   margin-top: 2mm !important;
 }
@@ -163,7 +179,8 @@ html.deck-document #experience .deck-stats .text-xs {
 }
 
 html.deck-document #experience .deck-experience-photo {
-  display: none !important;
+  margin-top: 4mm !important;
+  max-height: 42mm !important;
 }
 
 html.deck-document #experience .deck-lead {
@@ -175,24 +192,48 @@ html.deck-document #experience .deck-title {
   font-size: 1.25rem !important;
 }
 
-/* Zones — map fills page */
-html.deck-document #zones .deck-slide-inner {
+/* Zones — key left, map right (separate assets) */
+html.deck-document #zones .deck-zones-slide {
   padding-top: 5mm !important;
   padding-bottom: 5mm !important;
 }
 
+html.deck-document #zones .deck-zones-split {
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.34fr) minmax(0, 0.66fr);
+  gap: 6mm;
+  align-items: stretch;
+  margin-top: 3mm;
+}
+
+html.deck-document #zones .deck-zones-copy .deck-title {
+  font-size: 1rem !important;
+  line-height: 1.2 !important;
+}
+
+html.deck-document #zones .deck-zones-copy .deck-lead {
+  font-size: 0.76rem !important;
+  line-height: 1.4 !important;
+}
+
+html.deck-document #zones .deck-zones-note {
+  margin-top: 4mm !important;
+  font-size: 0.65rem !important;
+}
+
 html.deck-document #zones .deck-map {
-  margin-top: 2mm !important;
+  position: relative;
+  width: 100%;
+  min-height: min(72vh, 36rem);
+  aspect-ratio: 750 / 1090;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(42, 36, 48, 0.1);
 }
 
-html.deck-document #zones .deck-map img {
-  max-height: 168mm !important;
-  width: 100% !important;
+html.deck-document #zones .deck-zones-map-img {
   object-fit: contain !important;
-}
-
-html.deck-document #zones .deck-lead {
-  font-size: 0.8rem !important;
+  object-position: center center !important;
 }
 
 /* Pricing */
@@ -292,6 +333,6 @@ html.deck-document .deck-pricing-table {
   width: 100%;
 }
 
-html.deck-document img {
+html.deck-document img:not(.deck-zones-map-img) {
   max-width: 100%;
 }

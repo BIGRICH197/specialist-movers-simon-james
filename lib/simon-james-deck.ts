@@ -15,6 +15,15 @@ export const deliveryPricingIntro =
 export const deliveryPricingFootnote =
   "Excl. GST · two-mover crew · extra addresses on the same run each get their own base charge · multi-stop priced per delivery";
 
+/** Zone colours match the delivery map graphic */
+export const zoneLegend = [
+  { letter: "A", label: "Inner Auckland", color: "#f3d02a" },
+  { letter: "B", label: "Wider Metro", color: "#9739b0" },
+  { letter: "C", label: "Outer Auckland", color: "#b87bc8" },
+  { letter: "D", label: "Mangawhai / Waikato", color: "#6b2d7a" },
+  { letter: "E", label: "Far Afield", color: "#e8e0ec" },
+] as const;
+
 export const deliveryPricing = [
   { zone: "A - Inner Auckland", base: "$210", extra: "+$40 / m³" },
   { zone: "B - Wider Metro", base: "$280", extra: "+$40 / m³" },

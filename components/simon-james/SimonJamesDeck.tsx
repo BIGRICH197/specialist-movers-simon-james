@@ -3,6 +3,7 @@ import { HeroVisual } from "@/components/HeroVisual";
 import { SitePhoto } from "@/components/SitePhoto";
 import { DeckBrandLogo } from "@/components/simon-james/DeckBrandLogo";
 import { DeckSlide } from "@/components/simon-james/DeckSlide";
+import { DeckZonesKey } from "@/components/simon-james/DeckZonesKey";
 import {
   DeckEyebrow,
   DeckLead,
@@ -172,24 +173,32 @@ export function SimonJamesDeck() {
       </DeckSlide>
 
       {/* 5 - Zones */}
-      <DeckSlide id="zones" tone="light" scrollable innerClassName="!py-10 sm:!py-12">
+      <DeckSlide id="zones" tone="light" innerClassName="deck-zones-slide">
         <DeckEyebrow>Coverage</DeckEyebrow>
-        <DeckTitle className="mt-4">Delivery zones from Eden Terrace</DeckTitle>
+        <DeckTitle className="mt-3">Delivery zones from Eden Terrace</DeckTitle>
         <DeckRule />
-        <DeckLead>
-          Five zones from your warehouse. Inner Auckland for same-day work; outer rings for further
-          drops.
-        </DeckLead>
-        <div className="deck-map mt-4 flex flex-1 items-center justify-center sm:mt-6">
-          <Image
-            src="/clients/simon-james/zone_map.png"
-            alt="Delivery zones map"
-            width={900}
-            height={1200}
-            className="h-auto max-h-[min(52vh,28rem)] w-full max-w-2xl object-contain"
-          />
+        <div className="deck-zones-split">
+          <div className="deck-zones-copy">
+            <DeckLead className="mt-3">
+              Five zones from your warehouse. Inner Auckland for same-day work; outer rings for
+              further drops.
+            </DeckLead>
+            <DeckZonesKey />
+            <p className="deck-zones-note mt-4 text-xs text-brand-purple/60">
+              Full zone definitions on the rate card.
+            </p>
+          </div>
+          <div className="deck-map">
+            <Image
+              src="/clients/simon-james/zone_map_geo.png"
+              alt="Simon James delivery zones map of Auckland and north Waikato"
+              fill
+              sizes="(max-width: 52rem) 55vw, 28rem"
+              className="deck-zones-map-img"
+              priority
+            />
+          </div>
         </div>
-        <p className="mt-4 text-xs text-brand-purple/60">Full zone definitions on the rate card.</p>
       </DeckSlide>
 
       {/* 6 - Delivery pricing */}
