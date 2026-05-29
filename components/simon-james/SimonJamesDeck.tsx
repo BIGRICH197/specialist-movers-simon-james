@@ -3,7 +3,6 @@ import { HeroVisual } from "@/components/HeroVisual";
 import { SitePhoto } from "@/components/SitePhoto";
 import { DeckBrandLogo } from "@/components/simon-james/DeckBrandLogo";
 import { DeckSlide } from "@/components/simon-james/DeckSlide";
-import { DeckZonesKey } from "@/components/simon-james/DeckZonesKey";
 import {
   DeckEyebrow,
   DeckLead,
@@ -133,7 +132,7 @@ export function SimonJamesDeck() {
           Three things every delivery gets
         </DeckTitle>
         <DeckRule tone="purple" />
-        <ul className="deck-pillars mt-4 grid gap-6 sm:grid-cols-3 sm:gap-8">
+        <ul className="mt-4 grid gap-6 sm:grid-cols-3 sm:gap-8">
           {pillars.map((p) => (
             <li key={p.title} className="border-t border-white/20 pt-6">
               <h3 className="font-heading text-sm font-bold uppercase tracking-wide text-brand-yellow">
@@ -150,7 +149,7 @@ export function SimonJamesDeck() {
         <DeckEyebrow>Experience</DeckEyebrow>
         <DeckTitle className="mt-4">What we move a week</DeckTitle>
         <DeckRule />
-        <ul className="deck-stats mt-2 grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
+        <ul className="mt-2 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           {stats.map((s) => (
             <li key={s.label} className="border-t border-brand-purple/15 pt-6">
               <p className="font-heading text-3xl font-bold text-brand-purple sm:text-4xl">{s.value}</p>
@@ -163,7 +162,9 @@ export function SimonJamesDeck() {
         <SitePhoto
           src={sitePhotos.houseMove}
           alt="Careful furniture move"
-          className="deck-experience-photo mt-8"
+          aspect="wide"
+          className="deck-experience-photo"
+          overlay={false}
         />
         <DeckLead className="mt-6 sm:mt-8">
           Our team has handled everything from Steinway grand pianos to bespoke dining tables. We know
@@ -173,29 +174,29 @@ export function SimonJamesDeck() {
       </DeckSlide>
 
       {/* 5 - Zones */}
-      <DeckSlide id="zones" tone="light" innerClassName="deck-zones-slide">
+      <DeckSlide id="zones" tone="light">
         <DeckEyebrow>Coverage</DeckEyebrow>
         <DeckTitle className="mt-3">Delivery zones from Eden Terrace</DeckTitle>
         <DeckRule />
         <div className="deck-zones-split">
-          <div className="deck-zones-copy">
+          <div>
             <DeckLead className="mt-3">
               Five zones from your warehouse. Inner Auckland for same-day work; outer rings for
               further drops.
             </DeckLead>
-            <DeckZonesKey />
-            <p className="deck-zones-note mt-4 text-xs text-brand-purple/60">
+            <p className="mt-4 text-xs text-brand-purple/60">
               Full zone definitions on the rate card.
             </p>
           </div>
           <div className="deck-map">
             <Image
-              src="/clients/simon-james/zone_map_geo.png"
-              alt="Simon James delivery zones map of Auckland and north Waikato"
-              fill
-              sizes="(max-width: 52rem) 55vw, 28rem"
+              src="/clients/simon-james/zone_map.png"
+              alt="Simon James delivery zones from Eden Terrace"
+              width={1944}
+              height={1175}
               className="deck-zones-map-img"
               priority
+              sizes="(min-width: 640px) 33rem, 100vw"
             />
           </div>
         </div>
