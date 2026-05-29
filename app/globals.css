@@ -44,3 +44,55 @@
     border-radius: 1rem;
   }
 }
+
+/*
+ * Photo purple wash — outside @layer so it always wins over Tailwind resets.
+ */
+.photo-frame {
+  position: relative;
+  isolation: isolate;
+}
+
+.photo-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  border-radius: inherit;
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(151, 57, 176, 0.52) 0%,
+      rgba(151, 57, 176, 0.22) 38%,
+      rgba(190, 118, 239, 0.08) 55%,
+      transparent 72%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(190, 118, 239, 0.28) 0%,
+      rgba(151, 57, 176, 0.1) 45%,
+      transparent 70%
+    );
+}
+
+.photo-frame--caption::after {
+  background-image:
+    linear-gradient(
+      to top,
+      rgba(151, 57, 176, 0.97) 0%,
+      rgba(151, 57, 176, 0.72) 18%,
+      rgba(151, 57, 176, 0.35) 42%,
+      rgba(190, 118, 239, 0.12) 58%,
+      transparent 72%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(190, 118, 239, 0.22) 0%,
+      transparent 55%
+    );
+}
+
+.photo-frame--round::after {
+  border-radius: 9999px;
+}
