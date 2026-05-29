@@ -3,6 +3,7 @@ import { HeroVisual } from "@/components/HeroVisual";
 import { SitePhoto } from "@/components/SitePhoto";
 import { DeckBrandLogo } from "@/components/simon-james/DeckBrandLogo";
 import { DeckSlide } from "@/components/simon-james/DeckSlide";
+import { DeckZonesKey } from "@/components/simon-james/DeckZonesKey";
 import {
   DeckEyebrow,
   DeckLead,
@@ -179,21 +180,22 @@ export function SimonJamesDeck() {
         <DeckTitle className="mt-3">Delivery zones from Eden Terrace</DeckTitle>
         <DeckRule />
         <div className="deck-zones-split">
-          <div>
+          <div className="deck-zones-copy">
             <DeckLead className="mt-3">
               Five zones from your warehouse. Inner Auckland for same-day work; outer rings for
               further drops.
             </DeckLead>
+            <DeckZonesKey />
             <p className="mt-4 text-xs text-brand-purple/60">
               Full zone definitions on the rate card.
             </p>
           </div>
           <div className="deck-map">
             <Image
-              src="/clients/simon-james/zone_map.png"
-              alt="Simon James delivery zones from Eden Terrace"
-              width={1944}
-              height={1175}
+              src="/clients/simon-james/zone_map_clean.png"
+              alt="Delivery zones map, Auckland and north Waikato"
+              width={516}
+              height={1102}
               className="deck-zones-map-img"
               priority
               sizes="(min-width: 640px) 33rem, 100vw"
