@@ -91,10 +91,10 @@ export function SimonJamesDeck() {
           <DeckTitle tone="purple" as="h1" className="mt-5">
             Bespoke furniture delivery
           </DeckTitle>
-          <p className="mt-3 font-heading text-sm font-bold uppercase tracking-[0.2em] text-brand-yellow sm:text-base">
+          <p className="mt-3 font-heading text-base font-bold uppercase tracking-[0.2em] text-brand-yellow sm:text-lg">
             Prepared for Simon James
           </p>
-          <p className="mt-4 text-sm text-white/75 sm:mt-6 sm:text-base">Richard Boote, Director</p>
+          <p className="mt-4 text-base text-white/75 sm:mt-6 sm:text-lg">Richard Boote, Director</p>
         </div>
         <HeroVisual
           photoSrc={sitePhotos.homeHero}

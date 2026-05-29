@@ -47,7 +47,7 @@ export function DeckTitle({
     <Tag
       className={cn(
         "deck-title font-heading leading-tight",
-        Tag === "h1" ? "text-3xl sm:text-4xl lg:text-5xl" : "text-2xl sm:text-3xl lg:text-4xl",
+        Tag === "h1" ? "text-4xl sm:text-5xl lg:text-6xl" : "text-2xl sm:text-3xl lg:text-4xl",
         onPurple ? "text-brand-yellow" : "text-brand-purple",
         className,
       )}
@@ -70,7 +70,7 @@ export function DeckLead({
   return (
     <p
       className={cn(
-        "deck-lead text-base leading-relaxed sm:text-lg",
+        "deck-lead text-base leading-relaxed sm:text-lg lg:text-xl",
         onPurple ? "text-white/88" : "text-brand-purple/85",
         className,
       )}
